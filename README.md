@@ -13,7 +13,6 @@ This project combines 802.15.4 and 802.11 to create a protocol that allows for p
 ### This is essentially a system where the Raspberry Pi communicates with itself. 
 
 One way it communicates is via 802.15.4, where an Arduino, wired to the XBee, connects to the Pi over USB. The Pi writes to the arduino which then writes a Zigbee dataframe to the XBee device.
-
 Then, another XBee, wired to another arduino, which is connected to the Pi via USB, receives the data frame from the XBee, decodes it, and writes the data it receives to a file.
 
 The other way that the Pi can talk to itself is via 802.11. The Pi is acting as a router creating it's own network, and the ESP32 connects to that network when booted. The Pi also runs a UDP netcat server, which the ESP32 sends UDP packets to, and what the netcat server receives is then written to a file.
