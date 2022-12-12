@@ -21,8 +21,9 @@ class XBee():
             self.RxBuff.extend(chunk)
 
         msgs = self.RxBuff.split(bytes(b'\x7E'))
+        received_msg = ""
         for msg in msgs[:-1]:
-            self.Validate(msg)
+            received_msg = self.Validate(msg)
 
         self.RxBuff = (bytearray() if self.Validate(msgs[-1]) else msgs[-1])
 
@@ -58,8 +59,14 @@ class XBee():
         if (sum(frame[2:3+LSB]) & 0xFF) != 0xFF:
             return False
 
-        print("Rx: " + self.format(bytearray(b'\x7E') + msg))
+        # print("Rx: " + self.format(bytearray(b'\x7E') + msg))
+        partially_decoded = str(msg.decode("utf-8", errors="ignore"))
+        f = open("zigbee_messages.txt", "a")
+        f.write(str(partially_decoded[10]))
+        f.close()
+        print(partially_decoded[10])
         self.RxMessages.append(frame)
+        # print(frame)
         return True
 
     def SendStr(self, msg):
@@ -104,7 +111,7 @@ class XBee():
         # Escape any bytes containing reserved characters
         frame = self.Escape(frame)
 
-        print("Tx: " + self.format(frame))
+        # print("Tx: " + self.format(frame))
         return self.serial.write(frame)
 
     def Unescape(self, msg):
