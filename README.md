@@ -34,5 +34,6 @@ Here is an image displaying the data flow:
 Below is a video demoing this protocol. Here we are sending a string one character at a time, and we continuously send this string. Every other time the string is sent, the data rate is set to something faster than the XBee can handle, so that it switches to the ESP32, and then the next transmission will be at a slower data rate to show the XBees communicating.
 In the window on the left side, you'll see the data being received from the XBee, and on the right, it will be data received from the ESP32.
 You can also see in the terminal some status messages and what data is meant to be transmitted through which device.
-[<img src="https://img.youtube.com/vi/pc6iGUoplZ0/maxresdefault.jpg">](https://youtu.be/pc6iGUoplZ0)
+https://user-images.githubusercontent.com/49587024/207107091-d8c77875-b13f-497d-a286-e509648096df.mp4
+
 
