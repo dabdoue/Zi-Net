@@ -1,6 +1,8 @@
+# code credit: https://github.com/niolabs/python-xbee
+# has been slightly modified for my use
+
 import serial
 from collections import deque
-
 
 class XBee():
     RxBuff = bytearray()

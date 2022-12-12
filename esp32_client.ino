@@ -18,6 +18,8 @@
  by dlf (Metodo2 srl)
  modified 31 May 2012
  by Tom Igoe
+
+ modified with sleep and wakeup signaling
  */
 
 #include <WiFi.h>
