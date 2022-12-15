@@ -15,7 +15,6 @@ def wakeup_esp32(cur_esp32):
     GPIO.output(23, GPIO.LOW)  # sends low signal that triggers esp32 wakeup
 
     cur_esp32.waking_up = True
-    time_in_10 = time.time() + 10
     # while not received signal from esp32 indicating it is awake, stay in while loop
     while not GPIO.input(24):
         continue
